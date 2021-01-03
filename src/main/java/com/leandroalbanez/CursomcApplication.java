@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.leandroalbanez.domain.Categoria;
 import com.leandroalbanez.domain.Produto;
-import com.leandroalbanez.repository.CategoriaRepository;
-import com.leandroalbanez.repository.ProdutoRepository;
+import com.leandroalbanez.repositories.CategoriaRepository;
+import com.leandroalbanez.repositories.ProdutoRepository;
 
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner{
