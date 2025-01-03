@@ -31,7 +31,8 @@ public class CursomcApplication implements CommandLineRunner {
     private PedidoRepository pedidoRepository;
     @Autowired
     private PagamentoRepository pagamentoRepository;
-
+    @Autowired
+    private ItemPedidoRepository itemPedidoRepository;
 
 
     public static void main(String[] args) {
@@ -96,6 +97,22 @@ public class CursomcApplication implements CommandLineRunner {
 
         pedidoRepository.saveAll(Arrays.asList(ped1, ped2));
         pagamentoRepository.saveAll(Arrays.asList(pagto1, pagto2));
+
+        ItemPedido it1 = new ItemPedido(ped1, p1, 0.00, 1, 2000.0);
+        ItemPedido it2 = new ItemPedido(ped1, p3, 0.00, 2, 80.0);
+        ItemPedido it3 = new ItemPedido(ped2, p2, 100.00, 1, 800.0);
+
+        ped1.getItens().addAll(Arrays.asList(it1, it2));
+        ped2.getItens().add(it3);
+
+        p1.getItens().add(it1);
+        p2.getItens().add(it3);
+        p3.getItens().add(it2);
+
+
+        itemPedidoRepository.saveAll(Arrays.asList(it1, it2, it3));
+
+
 
     }
 }
