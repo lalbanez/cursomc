@@ -1,16 +1,16 @@
 package com.leandroalbanez.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 public class ItemPedido implements Serializable {
 
+    @JsonIgnore
     @EmbeddedId
     private ItemPedidoPK id = new ItemPedidoPK();
 
@@ -66,6 +66,7 @@ public class ItemPedido implements Serializable {
         return id.getProduto();
     }
 
+    @JsonIgnore
     public Pedido getPedido() {
         return id.getPedido();
     }

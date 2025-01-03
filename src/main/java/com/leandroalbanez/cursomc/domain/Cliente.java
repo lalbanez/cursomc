@@ -1,6 +1,6 @@
 package com.leandroalbanez.cursomc.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.leandroalbanez.cursomc.domain.enums.TipoCliente;
 import jakarta.persistence.*;
 
@@ -19,7 +19,6 @@ public class Cliente implements Serializable {
     //TODO: Verificar anotação @enum
     private Integer tipoCliente;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<Endereco>();
 
@@ -27,8 +26,9 @@ public class Cliente implements Serializable {
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<String>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
-    private List<Pedido> pedidos= new ArrayList<Pedido>();
+    private List<Pedido> pedidos = new ArrayList<Pedido>();
 
     public Cliente() {
     }

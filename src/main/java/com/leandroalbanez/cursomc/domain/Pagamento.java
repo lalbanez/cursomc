@@ -1,5 +1,6 @@
 package com.leandroalbanez.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.leandroalbanez.cursomc.domain.enums.EstadoPagamento;
 import jakarta.persistence.*;
 
@@ -16,6 +17,7 @@ public abstract class Pagamento implements Serializable {
     //TODO trocar para @enum
     private Integer estadoPagamento;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "pedido_id")
     @MapsId
