@@ -1,5 +1,6 @@
 package com.leandroalbanez.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.leandroalbanez.cursomc.domain.enums.TipoCliente;
 import jakarta.persistence.*;
 
@@ -18,6 +19,7 @@ public class Cliente implements Serializable {
     //TODO: Verificar anotação @enum
     private Integer tipoCliente;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<Endereco>();
 
@@ -26,6 +28,9 @@ public class Cliente implements Serializable {
     private Set<String> telefones = new HashSet<String>();
 
     public Cliente() {
+
+
+
     }
 
     public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipoCliente) {
