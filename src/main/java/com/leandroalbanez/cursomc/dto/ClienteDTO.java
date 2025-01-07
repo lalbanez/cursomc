@@ -1,10 +1,12 @@
 package com.leandroalbanez.cursomc.dto;
 
 import com.leandroalbanez.cursomc.domain.Cliente;
+import com.leandroalbanez.cursomc.services.validation.ClienteUpdate;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
+@ClienteUpdate
 public class ClienteDTO {
     private Integer id;
 
