@@ -2,7 +2,6 @@ package com.leandroalbanez.cursomc.repositories;
 
 import com.leandroalbanez.cursomc.domain.Categoria;
 import com.leandroalbanez.cursomc.domain.Produto;
-import
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
