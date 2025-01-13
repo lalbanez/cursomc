@@ -1,13 +1,17 @@
 package com.leandroalbanez.cursomc.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.leandroalbanez.cursomc.domain.enums.EstadoPagamento;
 import jakarta.persistence.Entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class PagamentoComBoleto extends Pagamento {
+@JsonTypeName("pagamentoComBoleto")
+public class PagamentoComBoleto extends Pagamento implements Serializable {
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private Date dataVencimento;
